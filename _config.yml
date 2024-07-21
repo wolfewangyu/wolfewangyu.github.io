@@ -1,6 +1,6 @@
-title: My Jekyll Blog
+title: 王主任办公室
 description: >- # this means to ignore newlines until "baseurl:"
-  Welcome to my blog!
+  王主任笑了笑并没有说什么
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://username.github.io" # the base hostname & protocol for your site
 theme: minima
