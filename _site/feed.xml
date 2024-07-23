@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-07-23T23:32:16+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">WY OFFICE</title><subtitle>A minimal and beautiful Jekyll theme best for writing and note-taking.</subtitle><author><name>Shangzhi Huang</name></author><entry><title type="html">液态球练习</title><link href="http://localhost:4000/2024/07/23/%E6%B6%B2%E6%80%81%E7%90%83.html" rel="alternate" type="text/html" title="液态球练习" /><published>2024-07-23T23:30:00+08:00</published><updated>2024-07-23T23:30:00+08:00</updated><id>http://localhost:4000/2024/07/23/%E6%B6%B2%E6%80%81%E7%90%83</id><content type="html" xml:base="http://localhost:4000/2024/07/23/%E6%B6%B2%E6%80%81%E7%90%83.html"><![CDATA[<p>今天跟着B站的sky老师做了一个液态球的案例，做个小总结<br />
+原始视频地址：
+https://www.bilibili.com/video/BV1Ab4y147Br/?spm_id_from=333.999.0.0&amp;vd_source=efbcccd768859a6434f0d70eadc7f584</p>
+
+<h3 id="有以下三个步骤">有以下三个步骤</h3>
+<ul>
+  <li>通过sphere + noise（做动态）+ twist(扭曲)</li>
+  <li>PBR材质调整详细参数</li>
+  <li>通过环境贴图照明来做光线渲染</li>
+</ul>
+
+<p>下面分别说明</p>
+
+<h3 id="通过sphere--noise做动态-twist扭曲">通过sphere + noise（做动态）+ twist(扭曲)</h3>
+<ol>
+  <li>sphere低分段数 + noise 动态 + 低扭曲程度</li>
+  <li>sphere低分段数 + noise 静态（关闭动态） + 低扭曲程度
+两个方式的对比</li>
+</ol>
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/AZYCV1.png" alt="Image 1" style="width: 49%; height: auto; margin-right: 10px;" />
+    <img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/vQePmp.png" alt="Image 2" style="width: 49%; height: auto;" />
+</div>
+
+<p>sphere: 为了更平滑，需要增加分段数量。增加到200的时候，发现掉帧已经比较严重，关掉noise动态，继续提升分段数到1000，仍然相对流畅
+noise: 默认是有Z轴动态的（表达式：absTime.seconds）, 为了性能考虑，可以关掉</p>
+
+<p>PBR材质调整详细参数
+这里一定不要忘记选Displace, 顶点替换</p>
+
+<h3 id="通过环境贴图照明来做光线渲染">通过环境贴图照明来做光线渲染</h3>
+<p>可以使用环境贴图，如果希望定制化，也可以直接建立一个constant, 或者给一个ramp，通过表达式，调整相位移动</p>
+
+<!--下面用的是html-->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+    <img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/fZytCQ.png" alt="Image 1" style="width: 90%; height: auto;" />
+</div>
+
+<p>这个实际是用noise和twist来做模型的动态，根据性能和最终形态的需求取得一个平衡。视频里面提到一句话就是，现在这个案例用的比较多的是CPU的性能，鼠标中键查看的时候确实么有GPU什么事儿。</p>]]></content><author><name>Shangzhi Huang</name></author><summary type="html"><![CDATA[今天跟着B站的sky老师做了一个液态球的案例，做个小总结 原始视频地址： https://www.bilibili.com/video/BV1Ab4y147Br/?spm_id_from=333.999.0.0&amp;vd_source=efbcccd768859a6434f0d70eadc7f584]]></summary></entry><entry><title type="html">github 上的第一篇博客</title><link href="http://localhost:4000/2024/07/22/github-%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.html" rel="alternate" type="text/html" title="github 上的第一篇博客" /><published>2024-07-22T21:48:00+08:00</published><updated>2024-07-22T21:48:00+08:00</updated><id>http://localhost:4000/2024/07/22/github-%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2</id><content type="html" xml:base="http://localhost:4000/2024/07/22/github-%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.html"><![CDATA[<p>这个BLOG是关于我在学习以下几个内容的一些总结、输出：</p>
+<ul>
+  <li>Touch Designer</li>
+  <li>js以及相关的：three.js, p5js, shaderpark等</li>
+  <li>3D软件的学习</li>
+  <li>其他一些技术的研究</li>
+  <li>读书笔记</li>
+</ul>
+
+<p>Jekyll安装、挑了一个看的上的theme，感谢原作者，在页面下部有姓名和链接。<br />
+使用Jekyll很方便，都是markdown的文档，平时写的一些东西直接拽过来扔上去就可以了。</p>]]></content><author><name>Shangzhi Huang</name></author><summary type="html"><![CDATA[这个BLOG是关于我在学习以下几个内容的一些总结、输出： Touch Designer js以及相关的：three.js, p5js, shaderpark等 3D软件的学习 其他一些技术的研究 读书笔记]]></summary></entry></feed>
