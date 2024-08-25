@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>叁两煮时线上展示1.0版本 | WY OFFICE</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="叁两煮时线上展示1.0版本" />
+<meta name="author" content="Wolfe wang" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="这是一个使用Three.js开发的场景，突出一个大米产品在山海之间的景象。浏览器地址加上“#debug”可以调整光线的位置，强度等，摄像机的移动限定在了一定的范围内，以防止穿帮镜头。" />
+<meta property="og:description" content="这是一个使用Three.js开发的场景，突出一个大米产品在山海之间的景象。浏览器地址加上“#debug”可以调整光线的位置，强度等，摄像机的移动限定在了一定的范围内，以防止穿帮镜头。" />
+<link rel="canonical" href="http://localhost:4000/2024/07/28/%E5%8F%81%E4%B8%A4%E7%85%AE%E6%97%B6%E7%BA%BF%E4%B8%8A%E5%B1%95%E7%A4%BA1.0%E7%89%88%E6%9C%AC.html" />
+<meta property="og:url" content="http://localhost:4000/2024/07/28/%E5%8F%81%E4%B8%A4%E7%85%AE%E6%97%B6%E7%BA%BF%E4%B8%8A%E5%B1%95%E7%A4%BA1.0%E7%89%88%E6%9C%AC.html" />
+<meta property="og:site_name" content="WY OFFICE" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-07-28T15:08:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="叁两煮时线上展示1.0版本" />
+<meta name="twitter:site" content="@ngzhio" />
+<meta name="twitter:creator" content="@Wolfe wang" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Wolfe wang"},"dateModified":"2024-07-28T15:08:00+08:00","datePublished":"2024-07-28T15:08:00+08:00","description":"这是一个使用Three.js开发的场景，突出一个大米产品在山海之间的景象。浏览器地址加上“#debug”可以调整光线的位置，强度等，摄像机的移动限定在了一定的范围内，以防止穿帮镜头。","headline":"叁两煮时线上展示1.0版本","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/07/28/%E5%8F%81%E4%B8%A4%E7%85%AE%E6%97%B6%E7%BA%BF%E4%B8%8A%E5%B1%95%E7%A4%BA1.0%E7%89%88%E6%9C%AC.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"Wolfe wang"},"url":"http://localhost:4000/2024/07/28/%E5%8F%81%E4%B8%A4%E7%85%AE%E6%97%B6%E7%BA%BF%E4%B8%8A%E5%B1%95%E7%A4%BA1.0%E7%89%88%E6%9C%AC.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="WY OFFICE" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">WY OFFICE</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/photo.png" class="author-avatar u-photo align-center" alt="Wolfe wang">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Wolfe wang</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:wolfe.wangyu@outlook.com">wolfe.wangyu@outlook.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">叁两煮时线上展示1.0版本</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2024-07-28T15:08:00+08:00" itemprop="datePublished">
+        Jul 28, 2024
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>这是一个使用Three.js开发的场景，突出一个大米产品在山海之间的景象。浏览器地址加上“#debug”可以调整光线的位置，强度等，摄像机的移动限定在了一定的范围内，以防止穿帮镜头。</p>
+
+<p>项目地址：https://sanliang-fan.vercel.app/<br />
+调试地址：https://sanliang-fan.vercel.app#debug</p>
+
+<p><img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/UdNEIm.png" alt="截图" /></p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+  <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/F8O34r.mp4" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<p>至于有什么用，我能想到的一点就是，在social media出图的时候，通过不同角度可以出来风格统一但是内容略有不同的图片。后续通过升级，还可以增加更多的自定义设置。比如：</p>
+
+<ol>
+  <li>增加夜景</li>
+  <li>可以更换环境贴图</li>
+  <li>可选周围生成的植物类别等</li>
+</ol>
+
+<p>总之，是希望这个东西成为一个工具，给在前线的业务人员生产内容提供方便。</p>
+
+<p>在这个项目中，一个知识点是关于立方体的六个面的贴图，使用了一个数组的方式来进行, 注意这里面的材质及其顺序，最早的时候我是通过让它显示一下每个面的编号来定位的，以准确对应盒子上的包装顺序。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nf">setCubeTextures</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">textures</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">colorMaps</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">cubeColorTexture_1</span><span class="p">,</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">cubeColorTexture_2</span><span class="p">,</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">cubeColorTexture_3</span><span class="p">,</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">cubeColorTexture_4</span><span class="p">,</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">cubeColorTexture_5</span><span class="p">,</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">cubeColorTexture_6</span>
+        <span class="p">]</span>
+
+        <span class="k">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">colorMaps</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">colorMaps</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">colorSpace</span> <span class="o">=</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SRGBColorSpace</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nf">setCubeMaterials</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">materials</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">colorMaps</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nx">texture</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nc">MeshStandardMaterial</span><span class="p">({</span> <span class="na">map</span><span class="p">:</span> <span class="nx">texture</span> <span class="p">}))</span>
+        <span class="c1">//Array</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">child</span> <span class="k">of</span> <span class="k">this</span><span class="p">.</span><span class="nx">materials</span><span class="p">){</span>
+            <span class="nx">child</span><span class="p">.</span><span class="nx">envMap</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">environmentMapTexture</span>
+            <span class="nx">child</span><span class="p">.</span><span class="nx">envMapIntensity</span> <span class="o">=</span> <span class="mf">0.1</span>
+        <span class="p">}</span>
+   
+
+        <span class="c1">// this.materials = new THREE.MeshStandardMaterial({color:'#880000'})</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>在Vercel上面部署的时候，总是提示npm run build出问题，试了几次都不行。也不知道是什么原因造成的。后来GPT了一下，问问能不能本地build然后上传，结果有意外的发现：通过下面三个步骤，竟然成功部署了。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g vercel
+vercel login
+vercel --prod
+</code></pre></div></div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    
+
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/2024/07/24/icloud%E7%9A%84%E5%9B%B0%E6%89%B0.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> iCloud造成的混乱
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/2024/07/30/3D%E5%B0%8F%E7%BB%83%E4%B9%A0.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            3D小练习
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2024 Wolfe wang; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>wolfe&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

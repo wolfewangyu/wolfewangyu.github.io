@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Blender中LED素材渲染 | WY OFFICE</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Blender中LED素材渲染" />
+<meta name="author" content="Wolfe wang" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="对于我们即将到来的业务，很大程度上是要体现屏幕内容的，这两天看到了一个youtube博主关于这方面的介绍， https://www.youtube.com/watch?v=gLdZzjxGCS0" />
+<meta property="og:description" content="对于我们即将到来的业务，很大程度上是要体现屏幕内容的，这两天看到了一个youtube博主关于这方面的介绍， https://www.youtube.com/watch?v=gLdZzjxGCS0" />
+<link rel="canonical" href="http://localhost:4000/2024/08/25/Blender%E4%B8%ADLED%E7%B4%A0%E6%9D%90%E6%B8%B2%E6%9F%93.html" />
+<meta property="og:url" content="http://localhost:4000/2024/08/25/Blender%E4%B8%ADLED%E7%B4%A0%E6%9D%90%E6%B8%B2%E6%9F%93.html" />
+<meta property="og:site_name" content="WY OFFICE" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-08-25T12:37:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Blender中LED素材渲染" />
+<meta name="twitter:site" content="@ngzhio" />
+<meta name="twitter:creator" content="@Wolfe wang" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Wolfe wang"},"dateModified":"2024-08-25T12:37:00+08:00","datePublished":"2024-08-25T12:37:00+08:00","description":"对于我们即将到来的业务，很大程度上是要体现屏幕内容的，这两天看到了一个youtube博主关于这方面的介绍， https://www.youtube.com/watch?v=gLdZzjxGCS0","headline":"Blender中LED素材渲染","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/08/25/Blender%E4%B8%ADLED%E7%B4%A0%E6%9D%90%E6%B8%B2%E6%9F%93.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"Wolfe wang"},"url":"http://localhost:4000/2024/08/25/Blender%E4%B8%ADLED%E7%B4%A0%E6%9D%90%E6%B8%B2%E6%9F%93.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="WY OFFICE" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">WY OFFICE</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/photo.png" class="author-avatar u-photo align-center" alt="Wolfe wang">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Wolfe wang</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:wolfe.wangyu@outlook.com">wolfe.wangyu@outlook.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">Blender中LED素材渲染</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2024-08-25T12:37:00+08:00" itemprop="datePublished">
+        Aug 25, 2024
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>对于我们即将到来的业务，很大程度上是要体现屏幕内容的，这两天看到了一个youtube博主关于这方面的介绍，
+https://www.youtube.com/watch?v=gLdZzjxGCS0</p>
+
+<p>案例中有几个信息点值得借鉴：</p>
+<ol>
+  <li>屏幕素材的亮度调整通常会引起过曝（flow out溢出效果），为了避免，并且灵活增加被照射场景亮度（如地面，墙面）采用的一个方案</li>
+  <li>editor内的一些工作流程，提高效果，如：Wrangler的使用（ctrl + T快捷键）, shader editor中的几个贴图结构的复制（base color, bump, roughness等等）</li>
+  <li>其他：屏幕所在的简单空间的搭建：使用了solidifier, array两个modifier, 使用了path来做圆柱支撑。渲染中整体volume的使用</li>
+</ol>
+
+<p>渲染效果（无volume和没有volume的）</p>
+
+<!--图片排列用的模版，width 根据不同的图片数量可以调整为 100除以图片数量，再少一点（空隙）-->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/tWHotg.png" alt="no volume" style="width: 49%; height: auto; margin-right: 10px;" />
+    <img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/VNWASa.png" alt="volume" style="width: 49%; height: auto;" />
+</div>
+
+<p>案例步骤：
+新建Plane
+赋材质，贴入LED素材（UV贴图调整），调整shader中的Emission调整
+环境空间制作</p>
+
+<h1 id="新建plane">新建Plane</h1>
+<p>这里注意，小键盘（numPad中，如果不激活numLock则实际会变成对timeline的控制）</p>
+
+<!--图片排列用的模版，width 根据不同的图片数量可以调整为 100除以图片数量，再少一点（空隙）-->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/1j9RNA.png" alt="Image 1" style="width: 20%; height: auto; margin-right: 10px;" />
+
+</div>
+
+<h1 id="材质video及uv调整">材质，video及UV调整</h1>
+
+<h2 id="编辑shader-editor节点">编辑Shader Editor节点</h2>
+<p>打开shader Editor：<br />
+Ctrl + T: 自动为node添加texture, mapping
+（adds on, community, 搜索nodes 找到nodes wrangler激活）
+这里可以仔细看一下一个Base color的贴图和mapping，UV的关系
+<img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/PXGZnC.png" alt="PXGZnC" /></p>
+
+<p>选择plane, tab进入编辑模式，点2（面模式）</p>
+
+<h2 id="视频设置">视频设置</h2>
+<p>在image Texture中选择视频文件，打开选中视频文件，选择视频文件，设置视频长度（frame）及起始位置（第几帧），勾选Cyclic, autofresh。</p>
+
+<p><img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/75e72J.png" alt="75e72J" /></p>
+
+<p>设置，注意右上角要选择view port shading才能看到材质的样子</p>
+
+<p><img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/3jnaH1.jpg" alt="3jnaH1" /></p>
+
+<h2 id="关于uv">关于UV</h2>
+<p>右键激活对象的面：UVfaces（或者按U）</p>
+
+<p>1）先unwrapped<br />
+2）调整到正向plane的视图<br />
+3）Project from view （左侧贴图出现一个框，就是要贴的面的比例框） ，2，3步骤非常重要</p>
+
+<p><img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/gEZufe.png" alt="gEZufe" /></p>
+
+<p>4） 左侧的框进入面编辑模式，s放大<br />
+<img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/4HKZER.png" alt="4HKZER" /></p>
+
+<p>*如果是比例一致可以直接（project from bounds）, 或者smart UV scale to bounds. Bounds这个指的就是贴进去的素材本身。</p>
+
+<h2 id="素材的发光设置">素材的发光设置</h2>
+<p>【重要】
+如果只用一个emission就会出现调整strength的时候，屏幕内容太亮会过曝，更多的时候是希望调整被屏幕照亮的环境（如地面等），用这个方式，上面的emission是调整环境亮度，下面的emission是调整屏幕本身素材亮度
+<img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/pGpiUk.jpg" alt="pGpiUk" /></p>
+
+<h1 id="环境空间制作">环境空间制作</h1>
+
+<p>环境空间制作，比较简单</p>
+<h2 id="ceiling结构">ceiling结构：</h2>
+<p>复制一个plane, 右键Subdivisions
+Insect, (点击键盘i两次，插入面)
+Modifier: solidify（增加厚度）, bevel（倒角）</p>
+
+<p><img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/m2Nvct.png" alt="m2Nvct" /></p>
+
+<p>背景调整到黑色：World, background to black</p>
+
+<h2 id="volume">volume</h2>
+<p>volumne(视频11:47), 增加氛围， 在world中设置，这个是整体加雾气，出一个朦胧感觉的设置
+参数设置：
+选择principle Volumes<br />
+density要小一点0.05，如果到1就什么也看不见了</p>
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/130pPP.png" alt="Image 1" style="width: 20%; height: auto; margin-right: 10px;" />
+</div>
+
+<h2 id="地面的材质">地面的材质</h2>
+
+<p>粘贴材质
+屋顶框架设置完了之后（material 03）,地面直接选择material 003,同样的材质不需要重新设置了，注意要点击那个小盾牌上的2，等于新建了一个！！！
+<img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/3mLYm8.png" alt="3mLYm8" /></p>
+
+<h1 id="其他结构制作-bars屏幕支撑">其他结构制作： bars屏幕支撑</h1>
+<p>（这部分详情看视频）</p>
+
+<p>关于屏幕的固定，使用几个贴的bar
+Path,画直线，然后在Data, Geometry, Depth增加厚度（圆柱）</p>
+
+<p>modifier是个array</p>
+
+<p>之前有个小错误：法线部分应该用bump（凸起），之前选的normal map, 下面是正确的节点</p>
+
+<p><img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/1vXTrR.png" alt="1vXTrR" /></p>
+
+<h1 id="文内资源">文内资源</h1>
+<p>原视频地址
+https://www.youtube.com/watch?v=gLdZzjxGCS0</p>
+
+<p>材质资源（免费）
+https://ambientcg.com/list</p>
+
+<p>Realtime materials资源库（blender插件，可以实时显示材质在模型上的显示）
+https://blendermarket.com/products/realtime-materials-for-blender</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    
+
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/2024/07/30/3D%E5%B0%8F%E7%BB%83%E4%B9%A0.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 3D小练习
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2024 Wolfe wang; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>wolfe&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

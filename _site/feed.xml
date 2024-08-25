@@ -1,4 +1,209 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-07-23T23:32:16+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">WY OFFICE</title><subtitle>A minimal and beautiful Jekyll theme best for writing and note-taking.</subtitle><author><name>Shangzhi Huang</name></author><entry><title type="html">液态球练习</title><link href="http://localhost:4000/2024/07/23/%E6%B6%B2%E6%80%81%E7%90%83.html" rel="alternate" type="text/html" title="液态球练习" /><published>2024-07-23T23:30:00+08:00</published><updated>2024-07-23T23:30:00+08:00</updated><id>http://localhost:4000/2024/07/23/%E6%B6%B2%E6%80%81%E7%90%83</id><content type="html" xml:base="http://localhost:4000/2024/07/23/%E6%B6%B2%E6%80%81%E7%90%83.html"><![CDATA[<p>今天跟着B站的sky老师做了一个液态球的案例，做个小总结<br />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-08-25T12:41:03+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">WY OFFICE</title><subtitle>wolfe&apos;s Blog</subtitle><author><name>Wolfe wang</name></author><entry><title type="html">Blender中LED素材渲染</title><link href="http://localhost:4000/2024/08/25/Blender%E4%B8%ADLED%E7%B4%A0%E6%9D%90%E6%B8%B2%E6%9F%93.html" rel="alternate" type="text/html" title="Blender中LED素材渲染" /><published>2024-08-25T12:37:00+08:00</published><updated>2024-08-25T12:37:00+08:00</updated><id>http://localhost:4000/2024/08/25/Blender%E4%B8%ADLED%E7%B4%A0%E6%9D%90%E6%B8%B2%E6%9F%93</id><content type="html" xml:base="http://localhost:4000/2024/08/25/Blender%E4%B8%ADLED%E7%B4%A0%E6%9D%90%E6%B8%B2%E6%9F%93.html"><![CDATA[<p>对于我们即将到来的业务，很大程度上是要体现屏幕内容的，这两天看到了一个youtube博主关于这方面的介绍，
+https://www.youtube.com/watch?v=gLdZzjxGCS0</p>
+
+<p>案例中有几个信息点值得借鉴：</p>
+<ol>
+  <li>屏幕素材的亮度调整通常会引起过曝（flow out溢出效果），为了避免，并且灵活增加被照射场景亮度（如地面，墙面）采用的一个方案</li>
+  <li>editor内的一些工作流程，提高效果，如：Wrangler的使用（ctrl + T快捷键）, shader editor中的几个贴图结构的复制（base color, bump, roughness等等）</li>
+  <li>其他：屏幕所在的简单空间的搭建：使用了solidifier, array两个modifier, 使用了path来做圆柱支撑。渲染中整体volume的使用</li>
+</ol>
+
+<p>渲染效果（无volume和没有volume的）</p>
+
+<!--图片排列用的模版，width 根据不同的图片数量可以调整为 100除以图片数量，再少一点（空隙）-->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/tWHotg.png" alt="no volume" style="width: 49%; height: auto; margin-right: 10px;" />
+    <img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/VNWASa.png" alt="volume" style="width: 49%; height: auto;" />
+</div>
+
+<p>案例步骤：
+新建Plane
+赋材质，贴入LED素材（UV贴图调整），调整shader中的Emission调整
+环境空间制作</p>
+
+<h1 id="新建plane">新建Plane</h1>
+<p>这里注意，小键盘（numPad中，如果不激活numLock则实际会变成对timeline的控制）</p>
+
+<!--图片排列用的模版，width 根据不同的图片数量可以调整为 100除以图片数量，再少一点（空隙）-->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/1j9RNA.png" alt="Image 1" style="width: 20%; height: auto; margin-right: 10px;" />
+
+</div>
+
+<h1 id="材质video及uv调整">材质，video及UV调整</h1>
+
+<h2 id="编辑shader-editor节点">编辑Shader Editor节点</h2>
+<p>打开shader Editor：<br />
+Ctrl + T: 自动为node添加texture, mapping
+（adds on, community, 搜索nodes 找到nodes wrangler激活）
+这里可以仔细看一下一个Base color的贴图和mapping，UV的关系
+<img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/PXGZnC.png" alt="PXGZnC" /></p>
+
+<p>选择plane, tab进入编辑模式，点2（面模式）</p>
+
+<h2 id="视频设置">视频设置</h2>
+<p>在image Texture中选择视频文件，打开选中视频文件，选择视频文件，设置视频长度（frame）及起始位置（第几帧），勾选Cyclic, autofresh。</p>
+
+<p><img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/75e72J.png" alt="75e72J" /></p>
+
+<p>设置，注意右上角要选择view port shading才能看到材质的样子</p>
+
+<p><img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/3jnaH1.jpg" alt="3jnaH1" /></p>
+
+<h2 id="关于uv">关于UV</h2>
+<p>右键激活对象的面：UVfaces（或者按U）</p>
+
+<p>1）先unwrapped<br />
+2）调整到正向plane的视图<br />
+3）Project from view （左侧贴图出现一个框，就是要贴的面的比例框） ，2，3步骤非常重要</p>
+
+<p><img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/gEZufe.png" alt="gEZufe" /></p>
+
+<p>4） 左侧的框进入面编辑模式，s放大<br />
+<img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/4HKZER.png" alt="4HKZER" /></p>
+
+<p>*如果是比例一致可以直接（project from bounds）, 或者smart UV scale to bounds. Bounds这个指的就是贴进去的素材本身。</p>
+
+<h2 id="素材的发光设置">素材的发光设置</h2>
+<p>【重要】
+如果只用一个emission就会出现调整strength的时候，屏幕内容太亮会过曝，更多的时候是希望调整被屏幕照亮的环境（如地面等），用这个方式，上面的emission是调整环境亮度，下面的emission是调整屏幕本身素材亮度
+<img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/pGpiUk.jpg" alt="pGpiUk" /></p>
+
+<h1 id="环境空间制作">环境空间制作</h1>
+
+<p>环境空间制作，比较简单</p>
+<h2 id="ceiling结构">ceiling结构：</h2>
+<p>复制一个plane, 右键Subdivisions
+Insect, (点击键盘i两次，插入面)
+Modifier: solidify（增加厚度）, bevel（倒角）</p>
+
+<p><img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/m2Nvct.png" alt="m2Nvct" /></p>
+
+<p>背景调整到黑色：World, background to black</p>
+
+<h2 id="volume">volume</h2>
+<p>volumne(视频11:47), 增加氛围， 在world中设置，这个是整体加雾气，出一个朦胧感觉的设置
+参数设置：
+选择principle Volumes<br />
+density要小一点0.05，如果到1就什么也看不见了</p>
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/130pPP.png" alt="Image 1" style="width: 20%; height: auto; margin-right: 10px;" />
+</div>
+
+<h2 id="地面的材质">地面的材质</h2>
+
+<p>粘贴材质
+屋顶框架设置完了之后（material 03）,地面直接选择material 003,同样的材质不需要重新设置了，注意要点击那个小盾牌上的2，等于新建了一个！！！
+<img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/3mLYm8.png" alt="3mLYm8" /></p>
+
+<h1 id="其他结构制作-bars屏幕支撑">其他结构制作： bars屏幕支撑</h1>
+<p>（这部分详情看视频）</p>
+
+<p>关于屏幕的固定，使用几个贴的bar
+Path,画直线，然后在Data, Geometry, Depth增加厚度（圆柱）</p>
+
+<p>modifier是个array</p>
+
+<p>之前有个小错误：法线部分应该用bump（凸起），之前选的normal map, 下面是正确的节点</p>
+
+<p><img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/1vXTrR.png" alt="1vXTrR" /></p>
+
+<h1 id="文内资源">文内资源</h1>
+<p>原视频地址
+https://www.youtube.com/watch?v=gLdZzjxGCS0</p>
+
+<p>材质资源（免费）
+https://ambientcg.com/list</p>
+
+<p>Realtime materials资源库（blender插件，可以实时显示材质在模型上的显示）
+https://blendermarket.com/products/realtime-materials-for-blender</p>]]></content><author><name>Wolfe wang</name></author><summary type="html"><![CDATA[对于我们即将到来的业务，很大程度上是要体现屏幕内容的，这两天看到了一个youtube博主关于这方面的介绍， https://www.youtube.com/watch?v=gLdZzjxGCS0]]></summary></entry><entry><title type="html">3D小练习</title><link href="http://localhost:4000/2024/07/30/3D%E5%B0%8F%E7%BB%83%E4%B9%A0.html" rel="alternate" type="text/html" title="3D小练习" /><published>2024-07-30T23:29:00+08:00</published><updated>2024-07-30T23:29:00+08:00</updated><id>http://localhost:4000/2024/07/30/3D%E5%B0%8F%E7%BB%83%E4%B9%A0</id><content type="html" xml:base="http://localhost:4000/2024/07/30/3D%E5%B0%8F%E7%BB%83%E4%B9%A0.html"><![CDATA[<p>在pinterest上面找了一张图想练习一下，起初是想用three.js来做，后来感觉渲染效果上如果追求一些很细致的调整，还是blender里面方便一些。这里涉及到的内容：</p>
+<ol>
+  <li>建模起墙操作</li>
+  <li>使用noise生成墙面纹理（加了一点点噪波，不然就是个光滑大平板）</li>
+  <li>渲染调试，灯光类型，强度，位置的调整。主要是sample和light path，降低了参数，优化出图速度，不过M1还是有点慢，显卡不行，出一张图渲染了10分钟。（场景简单，灯也倒是不少）</li>
+  <li>FBX从mixamo下载后导入，选用了其中一帧作为出图用</li>
+</ol>
+
+<p>pinterest上的样例图
+<img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/LLi1Ew.png" alt="LLi1Ew" /></p>
+
+<p>我渲染的图：为了追色调，简单PS曲线拉了一下，顶部灯箱好像有点自发光，懒得调了，下次一定，纹理上追的还不够仔细
+<img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/jLFVNk.png" alt="jLFVNk" /></p>]]></content><author><name>Wolfe wang</name></author><summary type="html"><![CDATA[在pinterest上面找了一张图想练习一下，起初是想用three.js来做，后来感觉渲染效果上如果追求一些很细致的调整，还是blender里面方便一些。这里涉及到的内容： 建模起墙操作 使用noise生成墙面纹理（加了一点点噪波，不然就是个光滑大平板） 渲染调试，灯光类型，强度，位置的调整。主要是sample和light path，降低了参数，优化出图速度，不过M1还是有点慢，显卡不行，出一张图渲染了10分钟。（场景简单，灯也倒是不少） FBX从mixamo下载后导入，选用了其中一帧作为出图用]]></summary></entry><entry><title type="html">叁两煮时线上展示1.0版本</title><link href="http://localhost:4000/2024/07/28/%E5%8F%81%E4%B8%A4%E7%85%AE%E6%97%B6%E7%BA%BF%E4%B8%8A%E5%B1%95%E7%A4%BA1.0%E7%89%88%E6%9C%AC.html" rel="alternate" type="text/html" title="叁两煮时线上展示1.0版本" /><published>2024-07-28T15:08:00+08:00</published><updated>2024-07-28T15:08:00+08:00</updated><id>http://localhost:4000/2024/07/28/%E5%8F%81%E4%B8%A4%E7%85%AE%E6%97%B6%E7%BA%BF%E4%B8%8A%E5%B1%95%E7%A4%BA1.0%E7%89%88%E6%9C%AC</id><content type="html" xml:base="http://localhost:4000/2024/07/28/%E5%8F%81%E4%B8%A4%E7%85%AE%E6%97%B6%E7%BA%BF%E4%B8%8A%E5%B1%95%E7%A4%BA1.0%E7%89%88%E6%9C%AC.html"><![CDATA[<p>这是一个使用Three.js开发的场景，突出一个大米产品在山海之间的景象。浏览器地址加上“#debug”可以调整光线的位置，强度等，摄像机的移动限定在了一定的范围内，以防止穿帮镜头。</p>
+
+<p>项目地址：https://sanliang-fan.vercel.app/<br />
+调试地址：https://sanliang-fan.vercel.app#debug</p>
+
+<p><img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/UdNEIm.png" alt="截图" /></p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+  <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/F8O34r.mp4" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<p>至于有什么用，我能想到的一点就是，在social media出图的时候，通过不同角度可以出来风格统一但是内容略有不同的图片。后续通过升级，还可以增加更多的自定义设置。比如：</p>
+
+<ol>
+  <li>增加夜景</li>
+  <li>可以更换环境贴图</li>
+  <li>可选周围生成的植物类别等</li>
+</ol>
+
+<p>总之，是希望这个东西成为一个工具，给在前线的业务人员生产内容提供方便。</p>
+
+<p>在这个项目中，一个知识点是关于立方体的六个面的贴图，使用了一个数组的方式来进行, 注意这里面的材质及其顺序，最早的时候我是通过让它显示一下每个面的编号来定位的，以准确对应盒子上的包装顺序。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nf">setCubeTextures</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">textures</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">colorMaps</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">cubeColorTexture_1</span><span class="p">,</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">cubeColorTexture_2</span><span class="p">,</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">cubeColorTexture_3</span><span class="p">,</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">cubeColorTexture_4</span><span class="p">,</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">cubeColorTexture_5</span><span class="p">,</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">cubeColorTexture_6</span>
+        <span class="p">]</span>
+
+        <span class="k">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">colorMaps</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">colorMaps</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">colorSpace</span> <span class="o">=</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SRGBColorSpace</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nf">setCubeMaterials</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">materials</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">colorMaps</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nx">texture</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nc">MeshStandardMaterial</span><span class="p">({</span> <span class="na">map</span><span class="p">:</span> <span class="nx">texture</span> <span class="p">}))</span>
+        <span class="c1">//Array</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">child</span> <span class="k">of</span> <span class="k">this</span><span class="p">.</span><span class="nx">materials</span><span class="p">){</span>
+            <span class="nx">child</span><span class="p">.</span><span class="nx">envMap</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">environmentMapTexture</span>
+            <span class="nx">child</span><span class="p">.</span><span class="nx">envMapIntensity</span> <span class="o">=</span> <span class="mf">0.1</span>
+        <span class="p">}</span>
+   
+
+        <span class="c1">// this.materials = new THREE.MeshStandardMaterial({color:'#880000'})</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>在Vercel上面部署的时候，总是提示npm run build出问题，试了几次都不行。也不知道是什么原因造成的。后来GPT了一下，问问能不能本地build然后上传，结果有意外的发现：通过下面三个步骤，竟然成功部署了。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g vercel
+vercel login
+vercel --prod
+</code></pre></div></div>]]></content><author><name>Wolfe wang</name></author><summary type="html"><![CDATA[这是一个使用Three.js开发的场景，突出一个大米产品在山海之间的景象。浏览器地址加上“#debug”可以调整光线的位置，强度等，摄像机的移动限定在了一定的范围内，以防止穿帮镜头。]]></summary></entry><entry><title type="html">iCloud造成的混乱</title><link href="http://localhost:4000/2024/07/24/icloud%E7%9A%84%E5%9B%B0%E6%89%B0.html" rel="alternate" type="text/html" title="iCloud造成的混乱" /><published>2024-07-24T21:34:00+08:00</published><updated>2024-07-24T21:34:00+08:00</updated><id>http://localhost:4000/2024/07/24/icloud%E7%9A%84%E5%9B%B0%E6%89%B0</id><content type="html" xml:base="http://localhost:4000/2024/07/24/icloud%E7%9A%84%E5%9B%B0%E6%89%B0.html"><![CDATA[<p>去年的时候，买了2T的icloud云空间，当时想的是，整理备份工作太麻烦，定期还要把电脑里面的东西拷贝到移动硬盘，时间久了就忘记哪个文件是在哪个硬盘里面了。包括手机上这些照片什么的，果然很好用，但是最近出现了一些问题。我的一些代码文件夹，在不久前还能够运行，今天突然报错，说找不到文件什么的。我以为是代码的问题，过了一会又好了。才想到可能是icloud的同步的问题。用finder去到文件夹目录里面去看，才发现确实有小云朵的图标。</p>
+
+<p>这确实造成了不小的麻烦，我有很多不同的代码文件夹，过一段时间不用，就会被上传到icloud上，等用的时候还要下载。于是我就想：还是算了，把icloud同步关了吧。</p>
+
+<p>就到设置里面，其中有一项是“同步桌面和文稿”，也就是这一项相当于把电脑文件量最大的位置都同步到云上了。我就关闭了同步，继而发现，电脑本地的文稿文件夹不见了。后来去apple官网查，有一个专门的栏目，叫“关闭同步之后会发生什么。”，简言之就是我遇到的这种情况：云端的文件都在，但是本地的文件都没有了。</p>
+
+<p>既然这样，我还是从云端拷贝到本地吧。我就点了左侧边栏的icloud图标，我所有的文稿文件都在（万幸），然后开始挑了两个往本地拷贝，拷贝的过程中又报错，说无法完成操作。实在没辙了，我打了Apple的支持电话，工作人员态度很好的带我操作，不过仍然没有解决，说去查看一下这个问题，晚上的时候会再联系我。</p>
+
+<p>看来，文件该自己手动整理还是要手动整理，不能甩给icloud，自己的数据还是要上点心。</p>
+
+<p>后续：
+Apple的工作人员打来电话，一通操作尝试。最后的解决办法是，先把“桌面文稿同步”关掉，然后右键一个文件夹一个文件夹的选择“现在下载”这时候会先把这些内容下载到本地。但是由于云端的文件量很大，硬盘应该是放不下的。所以要一波一波操作，下载一波，放到外接移动硬盘上。这个工作需要进行好几个小时。必定是几百G的文件。都是积累下来的工作量，以后还是踏踏实实的定期整理为好。</p>
+
+<p>另外，在反复拷贝的过程中出现了很多 ._ 开头的文件，据说是MAC系统的特有的文件格式保存信息什么的，如果看起来乱可以删掉。使用以下的批处理命令</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find . -name '._*' -delete
+</code></pre></div></div>]]></content><author><name>Wolfe wang</name></author><summary type="html"><![CDATA[去年的时候，买了2T的icloud云空间，当时想的是，整理备份工作太麻烦，定期还要把电脑里面的东西拷贝到移动硬盘，时间久了就忘记哪个文件是在哪个硬盘里面了。包括手机上这些照片什么的，果然很好用，但是最近出现了一些问题。我的一些代码文件夹，在不久前还能够运行，今天突然报错，说找不到文件什么的。我以为是代码的问题，过了一会又好了。才想到可能是icloud的同步的问题。用finder去到文件夹目录里面去看，才发现确实有小云朵的图标。]]></summary></entry><entry><title type="html">液态球练习</title><link href="http://localhost:4000/2024/07/23/%E6%B6%B2%E6%80%81%E7%90%83.html" rel="alternate" type="text/html" title="液态球练习" /><published>2024-07-23T23:30:00+08:00</published><updated>2024-07-23T23:30:00+08:00</updated><id>http://localhost:4000/2024/07/23/%E6%B6%B2%E6%80%81%E7%90%83</id><content type="html" xml:base="http://localhost:4000/2024/07/23/%E6%B6%B2%E6%80%81%E7%90%83.html"><![CDATA[<p>今天跟着B站的sky老师做了一个液态球的案例，做个小总结<br />
 原始视频地址：
 https://www.bilibili.com/video/BV1Ab4y147Br/?spm_id_from=333.999.0.0&amp;vd_source=efbcccd768859a6434f0d70eadc7f584</p>
 
@@ -37,7 +242,7 @@ noise: 默认是有Z轴动态的（表达式：absTime.seconds）, 为了性能�
     <img src="https://para-1255470189.cos.ap-nanjing.myqcloud.com/uPic/fZytCQ.png" alt="Image 1" style="width: 90%; height: auto;" />
 </div>
 
-<p>这个实际是用noise和twist来做模型的动态，根据性能和最终形态的需求取得一个平衡。视频里面提到一句话就是，现在这个案例用的比较多的是CPU的性能，鼠标中键查看的时候确实么有GPU什么事儿。</p>]]></content><author><name>Shangzhi Huang</name></author><summary type="html"><![CDATA[今天跟着B站的sky老师做了一个液态球的案例，做个小总结 原始视频地址： https://www.bilibili.com/video/BV1Ab4y147Br/?spm_id_from=333.999.0.0&amp;vd_source=efbcccd768859a6434f0d70eadc7f584]]></summary></entry><entry><title type="html">github 上的第一篇博客</title><link href="http://localhost:4000/2024/07/22/github-%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.html" rel="alternate" type="text/html" title="github 上的第一篇博客" /><published>2024-07-22T21:48:00+08:00</published><updated>2024-07-22T21:48:00+08:00</updated><id>http://localhost:4000/2024/07/22/github-%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2</id><content type="html" xml:base="http://localhost:4000/2024/07/22/github-%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.html"><![CDATA[<p>这个BLOG是关于我在学习以下几个内容的一些总结、输出：</p>
+<p>这个实际是用noise和twist来做模型的动态，根据性能和最终形态的需求取得一个平衡。视频里面提到一句话就是，现在这个案例用的比较多的是CPU的性能，鼠标中键查看的时候确实么有GPU什么事儿。</p>]]></content><author><name>Wolfe wang</name></author><summary type="html"><![CDATA[今天跟着B站的sky老师做了一个液态球的案例，做个小总结 原始视频地址： https://www.bilibili.com/video/BV1Ab4y147Br/?spm_id_from=333.999.0.0&amp;vd_source=efbcccd768859a6434f0d70eadc7f584]]></summary></entry><entry><title type="html">github 上的第一篇博客</title><link href="http://localhost:4000/2024/07/22/github-%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.html" rel="alternate" type="text/html" title="github 上的第一篇博客" /><published>2024-07-22T21:48:00+08:00</published><updated>2024-07-22T21:48:00+08:00</updated><id>http://localhost:4000/2024/07/22/github-%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2</id><content type="html" xml:base="http://localhost:4000/2024/07/22/github-%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.html"><![CDATA[<p>这个BLOG是关于我在学习以下几个内容的一些总结、输出：</p>
 <ul>
   <li>Touch Designer</li>
   <li>js以及相关的：three.js, p5js, shaderpark等</li>
@@ -47,4 +252,4 @@ noise: 默认是有Z轴动态的（表达式：absTime.seconds）, 为了性能�
 </ul>
 
 <p>Jekyll安装、挑了一个看的上的theme，感谢原作者，在页面下部有姓名和链接。<br />
-使用Jekyll很方便，都是markdown的文档，平时写的一些东西直接拽过来扔上去就可以了。</p>]]></content><author><name>Shangzhi Huang</name></author><summary type="html"><![CDATA[这个BLOG是关于我在学习以下几个内容的一些总结、输出： Touch Designer js以及相关的：three.js, p5js, shaderpark等 3D软件的学习 其他一些技术的研究 读书笔记]]></summary></entry></feed>
+使用Jekyll很方便，都是markdown的文档，平时写的一些东西直接拽过来扔上去就可以了。</p>]]></content><author><name>Wolfe wang</name></author><summary type="html"><![CDATA[这个BLOG是关于我在学习以下几个内容的一些总结、输出： Touch Designer js以及相关的：three.js, p5js, shaderpark等 3D软件的学习 其他一些技术的研究 读书笔记]]></summary></entry></feed>
